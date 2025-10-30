@@ -48,21 +48,17 @@ st.dataframe(df)
 # headers in file
 columns_in_file = df.columns.to_list()
 
+# remove identifier columns like Population name in our default datset
+columns_in_file.remove("population_name")
+
 # define default features for model
 default_features = [
     "environment_light_level_lux",
-    "nutrient_proxy_guano_index",
-    "water_temp_c",
-    "conductivity_uScm",
+    "pigmentation_score_0_1",
+    "eye_area_mm2",
+    "body_length_mm",
+    "neuromast_count_superficial",
     "generation_time_months",
-    "pop_size_Ne",
-    "num_snps",
-    "heterozygosity_pi",
-    "Fst_to_surface",
-    "PC1_genomewide",
-    "PC2_genomewide",
-    "latitude",
-    "longitude"
 ]
 # select input features
 features = st.multiselect("Select feature you want to include:",columns_in_file,default = default_features)
